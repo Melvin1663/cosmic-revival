@@ -218,4 +218,29 @@ pabout {
   .nav-list li {
     margin: 10px 0;
   }
+
+  thing {
+    margin: 1em;
+  }
+
+  mainpage {
+    width: 28em;
+  }
+
+  #welcome {
+    font-size: 25px;
+    text-shadow: 0 0 5px var(--cosmicgold), 0 0 10px var(--cosmicgold);
+  }
+  
+  pabout {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  mainpage {
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
 }
