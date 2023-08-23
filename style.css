@@ -1,0 +1,271 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&display=swap');
+
+@font-face {
+  font-family: "Mojangles";
+  src: url('fonts/mojangles.ttf');
+}
+
+:root {
+  --cosmicgold: rgb(235, 181, 6);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(25,25,25);
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+  overflow-x: hidden;
+}
+
+mainpage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dot {
+  z-index: -10;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  transition: all ease-in-out;
+  background-color: var(--cosmicgold);
+}
+
+@keyframes move-dots {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(25px, 25px);
+  }
+  50% {
+    transform: translate(50px, 50px);
+  }
+  75% {
+    transform: translate(75px, 75px);
+  }
+}
+
+.navbar {
+  z-index: 10;
+  background-color: #222;
+  color: white;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-list {
+  height: 100%;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: top 0.25s ease-in-out;
+}
+
+.nav-list li {
+  margin: 10px 20px;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+  font-family: "Plus Jakarta Sans";
+  font-weight: bold;
+  transition: color 0.3s;
+  z-index: 2;
+}
+
+.nav-list li a:hover {
+  color: var(--cosmicgold);
+}
+
+.nav-header {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #222;
+  z-index: 2;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+  order: 2;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.nav-toggle:hover {
+  background-color: #333;
+}
+
+.icon-bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px auto;
+  transition: background-color 0.3s;
+}
+
+#navicon {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  margin: 10px;
+}
+
+#navtitle {
+  color: var(--cosmicgold);
+  display: inline-block;
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 25px;
+  font-family: "Shippori Mincho";
+}
+
+.navthingy {
+  display: flex;
+  height: 50px;
+  margin-right: auto;
+  background-color: #222;
+  z-index: 2;
+}
+
+#guildicon {
+  margin: 50px 50px -90px 50px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+}
+
+#guildname {
+  color: white;
+  font-size: 40px;
+  font-family: "Plus Jakarta Sans";
+}
+
+#cards {
+  margin: 30px;
+  text-align: center;
+}
+
+.card {
+  background-color: #222;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.cardheader {
+  margin-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  font-family: "Plus Jakarta Sans";
+}
+
+.cardvalue {
+  color: var(--cosmicgold);
+  font-family: "Mojangles";
+  font-size: 40px;
+  font-weight: lighter;
+  display: inline-block;
+  vertical-align: bottom;
+  text-shadow: 4px 4px #402A00;
+}
+
+.headpfp {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+}
+
+@media screen and (max-width: 768px) {
+  .navthingy {
+    width: 100%;
+  }
+
+  .nav-header {
+    display: flex;
+  }
+  
+  .nav-toggle {
+    display: block;
+  }
+  
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    background-color: rgba(51, 51, 51, 0.69);
+    width: 100%;
+    height: auto;
+    text-align: center;
+    top: -160px;
+    justify-content: flex-start;
+    display: flex;
+    z-index: 0;
+  }
+
+  .nav-list li {
+    margin: 10px 0;
+  }
+
+  .card {
+    margin: 10px;
+    padding: 15px;
+    border-radius: 15px;
+  }
+
+  .cardvalue {
+    font-size: 25px;
+    text-shadow: 3px 3px #402A00;
+  }
+
+  .cardheader {
+    font-size: 13px;
+  }
+
+  .headpfp {
+    width: 25;
+    height: 25;
+  }
+}
