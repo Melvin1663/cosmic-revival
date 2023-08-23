@@ -1,77 +1,91 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script.js" defer></script>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.png">
-  <title>Cosmic</title>
-</head>
-<body>
-  <nav class="navbar">
-    <div class="navthingy">
-      <img id="navicon" src="favicon.png">
-      <p id="navtitle">Cosmic</p>
-    </div>
-    <div class="nav-header">
-      <button class="nav-toggle" id="nav-toggle">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <ul class="nav-list">
-      <li><a href="">Home</a></li>
-      <li><a href="about">About</a></li>
-      <li><a href="waitinglist">Waitinglist</a></li>
-      <li><a href="stats">Stats</a></li>
-      <li><a href="https://discord.gg/cosmicc">Discord</a></li>
-    </ul>
-  </nav>
-  <mainpage>
-    <img id="guildicon" src="cosmic.jpg">
-    <h1 id="guildname">Cosmic Guild</h1>
-    <div id="cards">
-      <div class="card" id="guildmotdcard">
-        <p class="cardheader">Guild MOTD</p>
-        <h3 class="cardvalue" id="guildmotd">...</h3>
-      </div>
-      <br>
-      <div class="card" id="guildlvlcard">
-        <p class="cardheader">Guild Level</p>
-        <h3 class="cardvalue" id="guildlvl">...</h3>
-      </div>
-      <div class="card" id="guildxpcard">
-        <p class="cardheader">Guild XP</p>
-        <h3 class="cardvalue" id="guildxp">...</h3>
-      </div>
-      <div class="card" id="guildxptnlvlcard">
-        <p class="cardheader">Next Level</p>
-        <h3 class="cardvalue" id="guildxptonlvl">...</h3>
-      </div>
-      <div class="card" id="guildposcard">
-        <p class="cardheader">Guild Rank</p>
-        <h3 class="cardvalue" id="guildpos">...</h3>
-      </div>
-      <div class="card" id="guildtagcard">
-        <p class="cardheader">Guild Tag</p>
-        <h3 class="cardvalue" id="guildtag">...</h3>
-      </div>
-      <div class="card" id="guildleadercard">
-        <p class="cardheader">Guild Leader</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png" class="headpfp" id="guildleaderpfp">
-        <h3 class="cardvalue" id="guildleader">...</h3>
-      </div>
-      <br>
-      <div class="card" id="guildofficerscard">
-        <p class="cardheader">Guild Officers</p>
-        <div class="cardvalue" id="guildofficers">...</div>
-      </div>
-      <div class="card" id="guildmemberscard">
-        <p class="cardheader">Guild Members</p>
-        <div class="cardvalue" id="guildmembers">...</div>
-      </div>
-    </div>
-  </mainpage>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Cosmic" property="og:title">
+        <meta content="The most prestigious guild in the history of nethergames." property="og:description">
+        <meta content="https://cosmic-ng.netlify.app/" property="og:url">
+        <meta content="#ebb506" data-react-helmet="true" name="theme-color">
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="favicon.png">
+        <title>Cosmic</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navthingy">
+                <img id="navicon" src="favicon.png">
+                <p id="navtitle">Cosmic</p>
+            </div>
+            <div class="nav-header">
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <ul class="nav-list">
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="about">About</a>
+                </li>
+                <li>
+                    <a href="waitinglist">Waitinglist</a>
+                </li>
+                <li>
+                    <a href="stats">Stats</a>
+                </li>
+                <li>
+                    <a href="https://discord.gg/cosmicc">Discord</a>
+                </li>
+            </ul>
+        </nav>
+        <mainpage>
+            <img id="guildicon" src="cosmic.jpg">
+            <h1 id="guildname">Cosmic Guild</h1>
+            <div id="cards">
+                <div class="card" id="guildmotdcard">
+                    <p class="cardheader">Guild MOTD</p>
+                    <h3 class="cardvalue" id="guildmotd">...</h3>
+                </div>
+                <br>
+                <div class="card" id="guildlvlcard">
+                    <p class="cardheader">Guild Level</p>
+                    <h3 class="cardvalue" id="guildlvl">...</h3>
+                </div>
+                <div class="card" id="guildxpcard">
+                    <p class="cardheader">Guild XP</p>
+                    <h3 class="cardvalue" id="guildxp">...</h3>
+                </div>
+                <div class="card" id="guildxptnlvlcard">
+                    <p class="cardheader">Next Level</p>
+                    <h3 class="cardvalue" id="guildxptonlvl">...</h3>
+                </div>
+                <div class="card" id="guildposcard">
+                    <p class="cardheader">Guild Rank</p>
+                    <h3 class="cardvalue" id="guildpos">...</h3>
+                </div>
+                <div class="card" id="guildtagcard">
+                    <p class="cardheader">Guild Tag</p>
+                    <h3 class="cardvalue" id="guildtag">...</h3>
+                </div>
+                <div class="card" id="guildleadercard">
+                    <p class="cardheader">Guild Leader</p>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png" class="headpfp" id="guildleaderpfp">
+                    <h3 class="cardvalue" id="guildleader">...</h3>
+                </div>
+                <br>
+                <div class="card" id="guildofficerscard">
+                    <p class="cardheader">Guild Officers</p>
+                    <div class="cardvalue" id="guildofficers">...</div>
+                </div>
+                <div class="card" id="guildmemberscard">
+                    <p class="cardheader">Guild Members</p>
+                    <div class="cardvalue" id="guildmembers">...</div>
+                </div>
+            </div>
+        </mainpage>
+    </body>
 </html>
