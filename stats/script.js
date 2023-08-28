@@ -48,26 +48,56 @@ const lastSunday = (today) => {
   return new Date(ns.getFullYear(), ns.getMonth(), ns.getDate() - 7);
 }
 
-function getLastSunday() {
+const getLastSunday = () => {
   const now = new Date(new Date().toLocaleDateString('en-US', { timeZone: 'Europe/London' })); // Get current date and time
-  const dayOfWeek = now.getUTCDay(); // Get day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
-
-  // Calculate the number of milliseconds in a day
-  const millisecondsInADay = 24 * 60 * 60 * 1000;
-  
-  // Calculate the number of milliseconds to subtract to get to the last Sunday
-  const millisecondsToLastSunday = (dayOfWeek + 1) * millisecondsInADay;
-  
-  // Calculate the timestamp of the first moment of the last occurring Sunday
-  const lastSundayTimestamp = now.getTime() - millisecondsToLastSunday;
-  
-  return lastSundayTimestamp;
+  return (now.getTime() - ((now.getUTCDay() + 1) * 86400000)) - (now.getTimezoneOffset() * 60000);
 }
 
-fetch('https://api.ngmc.co/v1/guilds/cosmic?withOnline=false').then(r => r.json().then(r => {
-  if (r) {
-    let playerList = [...r.officers, ...r.members, r.leader];
-    nextSunday().getTime();
+const table = document.getElementsByClassName('table')[0];
+
+function sortTable(column) {
+  var rows, switching, i, x, y, shouldSwitch;
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[column];
+      y = rows[i + 1].getElementsByTagName("TD")[column];
+      //check if the two rows should switch place:
+      if (Number(x.innerHTML) < Number(y.innerHTML)) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+fetch('https://api.ngmc.co/v1/guilds/cosmic?withOnline=false&expand=true&withStats=true').then(r => r.json().then(res => {
+  if (res) {
+    let playerList = [...res.officers.map(e => e.name), ...res.members.map(e => e.name), res.leader.name];
+    let playerXUID = {
+      [res.leader.xuid]: res.leader
+    };
+    for (i in res.officers) playerXUID[res.officers[i].xuid] = res.officers[i];
+    for (i in res.members) playerXUID[res.members[i].xuid] = res.members[i];
+
     fetch('https://api.ngmc.co/v1/players/stats/bulk', {
       headers: {
         'Content-Type': "application/json"
@@ -75,11 +105,57 @@ fetch('https://api.ngmc.co/v1/guilds/cosmic?withOnline=false').then(r => r.json(
       method: 'POST',
       body: JSON.stringify({
         periodStart: ~~(getLastSunday() / 1000),
+        hour: 0,
         periodEnd: ~~((getLastSunday() + 3600000) / 1000),
         names: playerList
       })
     }).then(s => s.json().then(s => {
-      console.log(s)
+      document.getElementById('loading').remove();
+      table.style.display = 'table';
+      document.getElementById('remember').style.display = 'block';
+
+      let counter = 0;
+
+      for (i in s) {
+        let row = document.createElement('tr');
+        let timestamp = Object.keys(s[i])[0];
+        let fields = {
+          player: {
+            name: playerXUID[i].name,
+            avatar: playerXUID[i].avatar
+          },
+          'wins.total': playerXUID[i].wins - s[i][timestamp].wins.total,
+          'wins.bw': playerXUID[i].winsData.BW - s[i][timestamp].wins.bw,
+          'wins.sw': playerXUID[i].winsData.SW - s[i][timestamp].wins.sw,
+          'wins.tb': playerXUID[i].winsData.TB - s[i][timestamp].wins.tb,
+          'wins.cq': playerXUID[i].winsData.CQ - s[i][timestamp].wins.cq,
+        }
+        for (f in fields) {
+          let child = document.createElement('td');
+
+          if (f == 'player') {
+            let p = document.createElement('p');
+            let img = document.createElement('img')
+            img.src = fields[f].avatar;
+            img.className = 'childrowhead';
+            p.innerHTML = fields[f].name;
+            p.className = 'childrowsname';
+            child.append(img, p);
+          } else child.innerHTML = fields[f];
+
+          row.appendChild(child);
+        }
+
+        row.className = 'childrows';
+        table.appendChild(row);
+
+        counter++;
+
+        if (counter == Object.keys(s).length) {
+          sortTable(1);
+          console.log('oanshul is bald')
+        }
+      }
     }))
   }
 }))

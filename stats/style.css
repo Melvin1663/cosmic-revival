@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "Mojangles";
-  src: url('fonts/mojangles.ttf');
+  src: url('../fonts/mojangles.ttf');
 }
 
 :root {
@@ -171,6 +171,62 @@ mainpage {
   color: var(--cosmicgold);
   font-size: 30px;
   font-family: "Plus Jakarta Sans";
+}
+
+#remember {
+  display: none;
+  margin-top: 80px;
+  font-size: 30px;
+  color: white;
+  font-family: "Plus Jakarta Sans";
+}
+
+.table {
+  display: none;
+  margin-top: 30px;
+  width: 80vw;
+  height: max-content;
+  border-radius: 20px;
+  background-color: #222;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding: 20px;
+}
+
+.table tr th {
+  color: var(--cosmicgold);
+  font-family: "Mojangles";
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+  text-shadow: 3px 3px #402A00;
+}
+
+.table th:first-child {
+  text-align: left;
+  width: 30%;
+}
+
+.childrows td:first-child {
+  text-align: left;
+}
+
+.childrowsname, .childrows {
+  color: white;
+  font-family: "Mojangles";
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 2px 2px #3F3F3F;
+}
+
+.childrowsname {
+  display: inline-block;
+}
+
+.childrowhead {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  display: inline-block;
 }
 
 @media screen and (max-width: 768px) {
