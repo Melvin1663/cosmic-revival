@@ -216,6 +216,8 @@ mainpage {
   font-size: 20px;
   text-align: center;
   text-shadow: 2px 2px #3F3F3F;
+  position: relative;
+  bottom: 4px;
 }
 
 .childrowsname {
