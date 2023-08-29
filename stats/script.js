@@ -124,7 +124,7 @@ fetch('https://api.ngmc.co/v1/guilds/cosmic?withOnline=false&expand=true&withSta
             name: playerXUID[i].name,
             avatar: playerXUID[i].avatar
           },
-          'wins.total': playerXUID[i].wins - s[i][timestamp].wins.total,
+          'wins.total': (playerXUID[i].winsData.BW + playerXUID[i].winsData.SW + playerXUID[i].winsData.TB + playerXUID[i].winsData.CQ) - (s[i][timestamp].wins.bw + s[i][timestamp].wins.sw + s[i][timestamp].wins.tb + s[i][timestamp].wins.cq),
           'wins.bw': playerXUID[i].winsData.BW - s[i][timestamp].wins.bw,
           'wins.sw': playerXUID[i].winsData.SW - s[i][timestamp].wins.sw,
           'wins.tb': playerXUID[i].winsData.TB - s[i][timestamp].wins.tb,
