@@ -257,6 +257,14 @@ mainpage {
 }
 
 @media screen and (max-width: 768px) {
+  .childrowsname, .childrows {
+    text-shadow: 1px 1px #3F3F3F;
+  }
+
+  .table tr th {
+    text-shadow: 2px 2px #402A00;
+  }
+
   .navthingy {
     width: 100%;
   }
