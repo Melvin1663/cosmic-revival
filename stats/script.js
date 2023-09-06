@@ -153,7 +153,13 @@ fetch('https://api.ngmc.co/v1/guilds/cosmic?withOnline=false&expand=true&withSta
 
         if (counter == Object.keys(s).length) {
           sortTable(1);
-          console.log('oanshul is bald')
+          if (window.innerWidth < 768) {
+            document.getElementById('table_head_gxp').innerHTML = "GXP";
+            document.getElementById('table_head_bw').innerHTML = "BW";
+            document.getElementById('table_head_sw').innerHTML = "SW";
+            document.getElementById('table_head_tb').innerHTML = "TB";
+            document.getElementById('table_head_cq').innerHTML = "CQ";
+          }
         }
       }
     }))

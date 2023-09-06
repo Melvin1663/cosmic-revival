@@ -201,6 +201,10 @@ mainpage {
   text-shadow: 3px 3px #402A00;
 }
 
+.table tr:first-child {
+  margin-bottom: 10px;
+}
+
 .table th:first-child {
   text-align: left;
   width: 30%;
@@ -229,6 +233,27 @@ mainpage {
   height: 25px;
   margin-right: 5px;
   display: inline-block;
+}
+
+@media screen and (max-width: 1220px) {
+  .table tr th {
+    font-size: 15px;
+  }
+
+  .table {
+    width: 90vw;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .childrowhead {
+    width: 15px;
+    height: 15px;
+  }
+
+  .childrowsname, .childrows {
+    font-size: 12.5px;
+  }
 }
 
 @media screen and (max-width: 768px) {
