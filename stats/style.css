@@ -175,10 +175,40 @@ mainpage {
 
 #remember {
   display: none;
-  margin-top: 80px;
+  margin-top: 30px;
+  margin-bottom: 15px;
   font-size: 30px;
   color: white;
   font-family: "Plus Jakarta Sans";
+}
+
+.substatsthisweek {
+  text-align: center;
+  color: white;
+  font-family: "Plus Jakarta Sans";
+  font-size: 20px;
+}
+
+.statsthisweek {
+  display: inline-block;
+  flex: 1;
+  min-width: 0;
+}
+
+#statsthisweekcontainer {
+  display: none;
+  width: 80vw;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.statsthisweekvalue {
+  color: var(--cosmicgold);
+  font-size: 30px;
+  font-family: "Plus Jakarta Sans";
+  font-weight: bold;
+  text-align: center;
 }
 
 .table {
@@ -246,6 +276,10 @@ mainpage {
     border-radius: 10px;
   }
 
+  #statsthisweekcontainer {
+    width: 90vw;
+  }
+
   .childrowhead {
     width: 15px;
     height: 15px;
@@ -257,6 +291,14 @@ mainpage {
 }
 
 @media screen and (max-width: 768px) {
+  .statsthisweekvalue {
+    font-size: 15px;
+  }
+
+  .substatsthisweek {
+    font-size: 10px;
+  }
+
   .childrowsname, .childrows {
     text-shadow: 1px 1px #3F3F3F;
   }

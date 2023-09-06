@@ -115,6 +115,13 @@ fetch('https://api.ngmc.co/v1/guilds/cosmic?withOnline=false&expand=true&withSta
       document.getElementById('remember').style.display = 'block';
 
       let counter = 0;
+      let totals = {
+        total: 0,
+        bw: 0,
+        sw: 0,
+        tb: 0,
+        cq: 0
+      }
 
       for (i in s) {
         let row = document.createElement('tr');
@@ -130,6 +137,7 @@ fetch('https://api.ngmc.co/v1/guilds/cosmic?withOnline=false&expand=true&withSta
           'wins.tb': playerXUID[i].winsData.TB - s[i][timestamp].wins.tb,
           'wins.cq': playerXUID[i].winsData.CQ - s[i][timestamp].wins.cq,
         }
+        for (i in totals) totals[i] += fields[`wins.${i}`];
         for (f in fields) {
           let child = document.createElement('td');
 
@@ -153,13 +161,8 @@ fetch('https://api.ngmc.co/v1/guilds/cosmic?withOnline=false&expand=true&withSta
 
         if (counter == Object.keys(s).length) {
           sortTable(1);
-          if (window.innerWidth < 768) {
-            document.getElementById('table_head_gxp').innerHTML = "GXP";
-            document.getElementById('table_head_bw').innerHTML = "BW";
-            document.getElementById('table_head_sw').innerHTML = "SW";
-            document.getElementById('table_head_tb').innerHTML = "TB";
-            document.getElementById('table_head_cq').innerHTML = "CQ";
-          }
+          document.getElementById('statsthisweekcontainer').style.display = 'flex';
+          ['gxp', 'bw', 'sw', 'tb', 'cq'].forEach(e => document.getElementById(`total_${e}`).innerHTML = `${totals[e == 'gxp' ? 'total' : e].toLocaleString()}`)
         }
       }
     }))

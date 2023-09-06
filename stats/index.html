@@ -45,14 +45,36 @@
         <mainpage>
             <p id="loading">Loading data...</p>
             <p id="remember">Stats this week</p>
+            <div id="statsthisweekcontainer">
+              <div class="statsthisweek">
+                <p class="statsthisweekvalue" id="total_gxp"></p>
+                <p class="substatsthisweek">Total wins</p>
+              </div>
+              <div class="statsthisweek">
+                <p class="statsthisweekvalue" id="total_bw"></p>
+                <p class="substatsthisweek">BW wins</p>
+              </div>
+              <div class="statsthisweek">
+                <p class="statsthisweekvalue" id="total_sw"></p>
+                <p class="substatsthisweek">SW wins</p>
+              </div>
+              <div class="statsthisweek">
+                <p class="statsthisweekvalue" id="total_tb"></p>
+                <p class="substatsthisweek">TB wins</p>
+              </div>
+              <div class="statsthisweek">
+                <p class="statsthisweekvalue" id="total_cq"></p>
+                <p class="substatsthisweek">CQ wins</p>
+              </div>
+            </div>
             <table class="table">
                 <tr id="table-head">
                     <th>Player</th>
-                    <th onclick="sortTable(1)" id="table_head_gxp">GXP Wins</th>
-                    <th onclick="sortTable(2)" id="table_head_bw">Bedwars</th>
-                    <th onclick="sortTable(3)" id="table_head_sw">SkyWars</th>
-                    <th onclick="sortTable(4)" id="table_head_tb">The Bridge</th>
-                    <th onclick="sortTable(5)" id="table_head_cq">Conquests</th>
+                    <th onclick="sortTable(1)" id="table_head_gxp">Total</th>
+                    <th onclick="sortTable(2)" id="table_head_bw">BW</th>
+                    <th onclick="sortTable(3)" id="table_head_sw">SW</th>
+                    <th onclick="sortTable(4)" id="table_head_tb">TB</th>
+                    <th onclick="sortTable(5)" id="table_head_cq">CQ</th>
                 </tr>
             </table>
         </mainpage>
